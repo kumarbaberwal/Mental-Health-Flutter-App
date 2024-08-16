@@ -75,7 +75,9 @@ class PlaylistScreen extends StatelessWidget {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const MusicPlayerScreen(),
+                          builder: (context) => MusicPlayerScreen(
+                            song: state.songs[index],
+                          ),
                         ),
                       );
                     },
