@@ -1,5 +1,5 @@
 import 'package:babybrain/features/meditation/presentation/pages/meditation_screen.dart';
-import 'package:babybrain/features/music/presentation/pages/music_player_screen.dart';
+import 'package:babybrain/features/music/presentation/pages/playlist_screen.dart';
 import 'package:babybrain/presentation/bottomNavBar/bloc/navigation_bloc.dart';
 import 'package:babybrain/presentation/bottomNavBar/bloc/navigation_state.dart';
 import 'package:babybrain/presentation/bottomNavBar/widgets/bottom_nav_bar.dart';
@@ -9,7 +9,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class HomePage extends StatelessWidget {
   final List<Widget> pages = [
     const MeditationScreen(),
-    const MusicPlayerScreen(),
+    // const MusicPlayerScreen(),
+    PlaylistScreen(),
   ];
 
   HomePage({super.key});
