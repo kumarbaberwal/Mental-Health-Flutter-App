@@ -18,7 +18,6 @@ class MeditationRemoteDatasourceImpl implements MeditationRemoteDatasource {
     final response = await client.get(
       Uri.parse('http://192.168.33.213:6000/meditation/dailyQuote'),
     );
-    print(response.body);
     if (response.statusCode == 200) {
       final jsonResponse = json.decode(response.body);
       return DailyQuoteModel.fromJson(jsonResponse);
@@ -32,7 +31,6 @@ class MeditationRemoteDatasourceImpl implements MeditationRemoteDatasource {
     final response = await client.get(
       Uri.parse('http://192.168.33.213:6000/meditation/myMood/$mood'),
     );
-    print(response.body);
     if (response.statusCode == 200) {
       final jsonResponse = json.decode(response.body);
       return MoodMessageModel.fromJson(jsonResponse);

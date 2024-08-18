@@ -38,21 +38,23 @@ class TaskCard extends StatelessWidget {
                 ),
                 Row(
                   children: [
-                    Text(
-                      description,
-                      style: Theme.of(context).textTheme.labelSmall,
-                    ),
-                    const SizedBox(
-                      width: 3,
-                    ),
-                    Container(
-                      padding: const EdgeInsets.all(3),
-                      decoration: BoxDecoration(
-                        color: Colors.grey.shade200,
-                        borderRadius: BorderRadius.circular(50),
+                    Flexible(
+                      child: Text(
+                        description,
+                        style: Theme.of(context).textTheme.labelSmall,
                       ),
-                      child: const Icon(Icons.arrow_forward_ios),
-                    )
+                    ),
+                    // const SizedBox(
+                    //   width: 3,
+                    // ),
+                    // Container(
+                    //   padding: const EdgeInsets.all(3),
+                    //   decoration: BoxDecoration(
+                    //     color: Colors.grey.shade200,
+                    //     borderRadius: BorderRadius.circular(50),
+                    //   ),
+                    //   child: const Icon(Icons.arrow_forward_ios),
+                    // )
                   ],
                 )
               ],

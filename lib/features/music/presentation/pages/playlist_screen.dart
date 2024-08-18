@@ -49,41 +49,39 @@ class PlaylistScreen extends StatelessWidget {
               child: CircularProgressIndicator(),
             );
           } else if (state is SongLoaded) {
-            return Container(
-              child: ListView.builder(
-                itemCount: state.songs.length,
-                itemBuilder: (context, index) {
-                  return ListTile(
-                    leading: CircleAvatar(
-                      backgroundImage: AssetImage(
-                        playlist[index]['imagePath']!,
-                      ), // Replace with your image path
-                    ),
-                    trailing: const Icon(
-                      Icons.arrow_forward_ios,
-                      size: 15,
-                    ),
-                    title: Text(
-                      state.songs[index].title,
-                      style: Theme.of(context).textTheme.labelMedium,
-                    ),
-                    subtitle: Text(
-                      state.songs[index].author,
-                      style: Theme.of(context).textTheme.labelSmall,
-                    ),
-                    onTap: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => MusicPlayerScreen(
-                            song: state.songs[index],
-                          ),
+            return ListView.builder(
+              itemCount: state.songs.length,
+              itemBuilder: (context, index) {
+                return ListTile(
+                  leading: CircleAvatar(
+                    backgroundImage: AssetImage(
+                      playlist[index]['imagePath']!,
+                    ), // Replace with your image path
+                  ),
+                  trailing: const Icon(
+                    Icons.arrow_forward_ios,
+                    size: 15,
+                  ),
+                  title: Text(
+                    state.songs[index].title,
+                    style: Theme.of(context).textTheme.labelMedium,
+                  ),
+                  subtitle: Text(
+                    state.songs[index].author,
+                    style: Theme.of(context).textTheme.labelSmall,
+                  ),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => MusicPlayerScreen(
+                          song: state.songs[index],
                         ),
-                      );
-                    },
-                  );
-                },
-              ),
+                      ),
+                    );
+                  },
+                );
+              },
             );
           } else if (state is SongError) {
             return Center(

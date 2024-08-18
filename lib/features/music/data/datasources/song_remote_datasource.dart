@@ -15,7 +15,6 @@ class SongRemoteDatasourceImpl implements SongRemoteDatasource {
     final response = await client.get(
       Uri.parse('http://192.168.33.213:6000/songs/all'),
     );
-    print(response.body);
     if (response.statusCode == 200) {
       List jsonResponse = json.decode(response.body);
       return jsonResponse.map((song) => SongModel.fromJson(song)).toList();
