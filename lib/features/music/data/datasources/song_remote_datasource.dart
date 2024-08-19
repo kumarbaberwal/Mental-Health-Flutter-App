@@ -13,7 +13,7 @@ class SongRemoteDatasourceImpl implements SongRemoteDatasource {
   @override
   Future<List<SongModel>> getAllSongs() async {
     final response = await client.get(
-      Uri.parse('http://192.168.33.213:6000/songs/all'),
+      Uri.parse('http://192.168.88.234:6000/songs/all'),
     );
     if (response.statusCode == 200) {
       List jsonResponse = json.decode(response.body);
