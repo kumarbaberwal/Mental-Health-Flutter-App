@@ -4,8 +4,15 @@ class MoodMessageModel extends MoodMessage {
   MoodMessageModel({required super.text});
 
   factory MoodMessageModel.fromJson(Map<String, dynamic> json) {
-    return MoodMessageModel(
-      text: json['text'],
-    );
+    final advice = json['text']['advice'] as String;
+    return MoodMessageModel(text: advice);
+  }
+
+  Map<String, dynamic> toJson() {
+    return {
+      'text': {
+        'advice': text,
+      },
+    };
   }
 }

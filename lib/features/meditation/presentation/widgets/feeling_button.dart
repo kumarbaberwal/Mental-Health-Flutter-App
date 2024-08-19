@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 
 class FeelingButton extends StatelessWidget {
-  final String feeling;
-  final String imagePath;
+  final String label;
+  final String image;
   final Color color;
   final VoidCallback onTap;
+
   const FeelingButton(
       {super.key,
-      required this.imagePath,
+      required this.label,
+      required this.image,
       required this.color,
-      required this.feeling, required this.onTap});
+      required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -20,16 +22,16 @@ class FeelingButton extends StatelessWidget {
           Container(
             padding: const EdgeInsets.all(20),
             decoration: BoxDecoration(
-              color: color,
               borderRadius: BorderRadius.circular(20),
+              color: color,
             ),
             child: Image.asset(
-              imagePath,
+              image,
               height: 25,
             ),
           ),
           Text(
-            feeling,
+            label,
             style: Theme.of(context).textTheme.labelSmall,
           )
         ],

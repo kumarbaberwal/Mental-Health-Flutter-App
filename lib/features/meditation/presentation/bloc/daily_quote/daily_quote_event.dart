@@ -1,3 +1,3 @@
-class FetchDailyQuote extends DailyQuoteEvent {}
-
 abstract class DailyQuoteEvent {}
+
+class FetchDailyQuote extends DailyQuoteEvent {}

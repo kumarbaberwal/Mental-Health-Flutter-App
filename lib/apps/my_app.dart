@@ -1,8 +1,8 @@
 import 'package:babybrain/core/theme.dart';
 import 'package:babybrain/features/meditation/data/datasources/meditation_remote_datasource.dart';
-import 'package:babybrain/features/meditation/data/repositories/meditaion_repository_impl.dart';
-import 'package:babybrain/features/meditation/domain/usecases/get_daily_quote.dart';
-import 'package:babybrain/features/meditation/domain/usecases/get_mood_message.dart';
+import 'package:babybrain/features/meditation/data/reposiroties/meditation_repository_impl.dart';
+import 'package:babybrain/features/meditation/domain/usescases/get_daily_quote.dart';
+import 'package:babybrain/features/meditation/domain/usescases/get_mood_message.dart';
 import 'package:babybrain/features/meditation/presentation/bloc/daily_quote/daily_quote_bloc.dart';
 import 'package:babybrain/features/meditation/presentation/bloc/daily_quote/daily_quote_event.dart';
 import 'package:babybrain/features/meditation/presentation/bloc/mood_message/mood_message_bloc.dart';
@@ -40,8 +40,8 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => DailyQuoteBloc(
             getDailyQuote: GetDailyQuote(
-              repository: MeditaionRepositoryImpl(
-                remoteDatasource: MeditationRemoteDatasourceImpl(
+              repository: MeditationRepositoryImpl(
+                remoteDataSource: MeditationRemoteDataSourceImpl(
                   client: http.Client(),
                 ),
               ),
@@ -51,8 +51,8 @@ class MyApp extends StatelessWidget {
         BlocProvider(
           create: (context) => MoodMessageBloc(
             getMoodMessage: GetMoodMessage(
-              repository: MeditaionRepositoryImpl(
-                remoteDatasource: MeditationRemoteDatasourceImpl(
+              repository: MeditationRepositoryImpl(
+                remoteDataSource: MeditationRemoteDataSourceImpl(
                   client: http.Client(),
                 ),
               ),

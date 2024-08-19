@@ -35,7 +35,7 @@ class MeditationScreen extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text('Welcome back, Sabrina!',
+              Text('Welcome back, Kumar!',
                   style: Theme.of(context).textTheme.titleLarge),
               const SizedBox(
                 height: 32,
@@ -51,47 +51,40 @@ class MeditationScreen extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   FeelingButton(
-                    feeling: 'Happy',
-                    imagePath: 'assets/happy.png',
-                    color: DefaultColors.pink,
-                    onTap: () {
-                      context.read<MoodMessageBloc>().add(
-                            FetchMoodMessage(mood: 'Today i am happy'),
-                          );
-                    },
-                  ),
+                      label: 'Happy',
+                      image: 'assets/happy.png',
+                      color: DefaultColors.pink,
+                      onTap: () {
+                        context
+                            .read<MoodMessageBloc>()
+                            .add(FetchMoodMessage('Today i am happy'));
+                      }),
                   FeelingButton(
-                    feeling: 'Calm',
-                    imagePath: 'assets/calm.png',
-                    color: DefaultColors.purple,
-                    onTap: () {
-                      context.read<MoodMessageBloc>().add(
-                            FetchMoodMessage(mood: 'Today i am calm'),
-                          );
-                    },
-                  ),
+                      label: 'Calm',
+                      image: 'assets/calm.png',
+                      color: DefaultColors.purple,
+                      onTap: () {
+                        context
+                            .read<MoodMessageBloc>()
+                            .add(FetchMoodMessage('Today i am calm'));
+                      }),
                   FeelingButton(
-                    feeling: 'Relax',
-                    imagePath: 'assets/relax.png',
-                    color: DefaultColors.orange,
-                    onTap: () {
-                      context.read<MoodMessageBloc>().add(
-                            FetchMoodMessage(mood: 'Today i am relax'),
-                          );
-                    },
-                  ),
+                      label: 'Relax',
+                      image: 'assets/relax.png',
+                      color: DefaultColors.orange,
+                      onTap: () {
+                        context
+                            .read<MoodMessageBloc>()
+                            .add(FetchMoodMessage('Today i am relax'));
+                      }),
                   FeelingButton(
-                    feeling: 'Focus',
-                    imagePath: 'assets/focus.png',
-                    color: DefaultColors.lightteal,
-                    onTap: () {
-                      context.read<MoodMessageBloc>().add(
-                            FetchMoodMessage(
-                                mood:
-                                    'Today i need to be focus but feel like i am missing something'),
-                          );
-                    },
-                  )
+                      label: 'Focus',
+                      image: 'assets/focus.png',
+                      color: DefaultColors.lightteal,
+                      onTap: () {
+                        context.read<MoodMessageBloc>().add(FetchMoodMessage(
+                            'Today i need to be focus but feel like i am missing something'));
+                      })
                 ],
               ),
               const SizedBox(
@@ -156,33 +149,31 @@ class MeditationScreen extends StatelessWidget {
               BlocBuilder<MoodMessageBloc, MoodMessageState>(
                 builder: (context, state) {
                   if (state is MoodMessageLoaded) {
-                    WidgetsBinding.instance.addPostFrameCallback(
-                      (_) {
-                        showDialog(
+                    WidgetsBinding.instance.addPostFrameCallback((_) {
+                      showDialog(
                           context: context,
                           builder: (context) => AlertDialog(
-                            title: Text(
-                              'My advice for you',
-                              style: Theme.of(context).textTheme.labelMedium,
-                            ),
-                            content: Text(
-                              state.moodMessage.text,
-                              style: Theme.of(context).textTheme.labelSmall,
-                            ),
-                            actions: [
-                              TextButton(
-                                  onPressed: () {
-                                    Navigator.pop(context);
-                                    context
-                                        .read<MoodMessageBloc>()
-                                        .add(ResetMoodMessage());
-                                  },
-                                  child: const Text('Ok'))
-                            ],
-                          ),
-                        );
-                      },
-                    );
+                                title: Text(
+                                  'My advice for you',
+                                  style:
+                                      Theme.of(context).textTheme.labelMedium,
+                                ),
+                                content: Text(
+                                  state.moodMessage.text,
+                                  style: Theme.of(context).textTheme.labelSmall,
+                                ),
+                                actions: [
+                                  TextButton(
+                                      onPressed: () {
+                                        Navigator.pop(context);
+                                        context
+                                            .read<MoodMessageBloc>()
+                                            .add(ResetMoodMessage());
+                                      },
+                                      child: const Text('ok'))
+                                ],
+                              ));
+                    });
                   }
                   return Container();
                 },

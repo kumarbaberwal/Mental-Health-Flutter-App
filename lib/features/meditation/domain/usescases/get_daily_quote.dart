@@ -1,8 +1,8 @@
 import 'package:babybrain/features/meditation/domain/entities/daily_quote.dart';
-import 'package:babybrain/features/meditation/domain/repositories/meditaiton_repository.dart';
+import 'package:babybrain/features/meditation/domain/repositories/meditation_repository.dart';
 
 class GetDailyQuote {
-  final MeditaitonRepository repository;
+  final MeditationRepository repository;
 
   GetDailyQuote({required this.repository});
 

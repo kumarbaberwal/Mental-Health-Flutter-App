@@ -8,7 +8,7 @@ class DailyQuoteModel extends DailyQuote {
   });
 
   factory DailyQuoteModel.fromJson(Map<String, dynamic> json) {
-    final quotes = json['text'];  // Assuming json['text'] is already a Map
+    final quotes = json['text'] as Map<String, dynamic>;
     return DailyQuoteModel(
       morningQuote: quotes['morningQuote'],
       noonQuote: quotes['noonQuote'],
@@ -18,9 +18,11 @@ class DailyQuoteModel extends DailyQuote {
 
   Map<String, dynamic> toJson() {
     return {
-      'morningQuote': morningQuote,
-      'noonQuote': noonQuote,
-      'eveningQuote': eveningQuote,
+      'text': {
+        'morningQuote': morningQuote,
+        'noonQuote': noonQuote,
+        'eveningQuote': eveningQuote,
+      },
     };
   }
 }
